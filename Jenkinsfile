@@ -14,6 +14,7 @@ pipeline {
                 script {
                     def files = sh(script: 'ls', returnStdout: true).trim()
                     echo "Files in the current directory: ${files}"
+                    echo "Hello from Jay"
                 }
             }
         }
