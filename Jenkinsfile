@@ -4,14 +4,14 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build('my-docker-image:latest', 'Dockerfile')
+                    sh 'docker build -t my-docker-image:latest .'
                 }
             }
         }
         stage('Run Docker Container') {
             steps {
                 script {
-                    docker.image('my-docker-image:latest').run('--name my-container -d ')
+                    sh 'docker run -d --name demo my-docker-image
                 }
             }
         }
