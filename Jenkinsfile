@@ -11,7 +11,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh 'docker run -d --name demo my-docker-image
+                    sh 'docker run -d --name demo my-docker-image'
                 }
             }
         }
