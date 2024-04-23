@@ -3,12 +3,18 @@ pipeline {
     stages {
         stage('Print Working Directory') {
             steps {
-                sh 'pwd'
+                script {
+                    sh 'pwd'
+                    echo "Current working directory: ${pwd()}"
+                }
             }
         }
-        stage('Print Working Directory') {
+        stage('List Files') {
             steps {
-                sh 'ls'
+                script {
+                    sh 'ls'
+                    echo "Files in the current directory: ${ls()}"
+                }
             }
         }
     }
