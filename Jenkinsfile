@@ -7,11 +7,7 @@ pipeline {
                 sh 'pwd'
             }
         }
-        stage('List Directory Contents') {
-            steps {
-                sh 'ls'
-            }
-        }
+        
     }
     
     post {
@@ -21,3 +17,6 @@ pipeline {
         }
         failure {
             // Actions to perform if the
+        }
+    }
+}
