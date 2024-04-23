@@ -4,19 +4,10 @@ pipeline {
         stage('Print Working Directory') {
             steps {
                 script {
-                    def workingDir = pwd()
-                    echo "Current working directory: ${workingDir}"
+                    sh 'docker build -t demo .'
+                    sh 'docker run -d --name demofor demo'
+                    echo "Images created successfully"
                 }
             }
-        }
-        stage('List Files') {
-            steps {
-                script {
-                    def files = sh(script: 'ls', returnStdout: true).trim()
-                    echo "Files in the current directory: ${files}"
-                    echo "Hello from Jay"
-                }
-            }
-        }
     }
 }
