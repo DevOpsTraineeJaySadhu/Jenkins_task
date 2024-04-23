@@ -1,12 +1,17 @@
 pipeline {
     agent any
-    stages {
-        stage('Build and Run Docker Image') {
+     stages {
+        stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build('demo','Dockerfile')
-                    docker.image('demo').run('-d --name demofor')
-                    echo "Docker image created and container started successfully"
+                    docker.build('my-docker-image:latest', 'Dockerfile')
+                }
+            }
+        }
+        stage('Run Docker Container') {
+            steps {
+                script {
+                    docker.image('my-docker-image:latest').run('--name my-container -d ')
                 }
             }
         }
