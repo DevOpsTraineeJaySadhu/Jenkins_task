@@ -4,26 +4,18 @@ pipeline {
         stage('Print Working Directory') {
             steps {
                 script {
-                    sh 'pwd'
-                    echo "Current working directory: ${pwd()}"
+                    def workingDir = pwd()
+                    echo "Current working directory: ${workingDir}"
                 }
             }
         }
         stage('List Files') {
             steps {
                 script {
-                    sh 'ls'
-                    echo "Files in the current directory: ${ls()}"
+                    def files = sh(script: 'ls', returnStdout: true).trim()
+                    echo "Files in the current directory: ${files}"
                 }
             }
-        }
-    }
-    post {
-        success {
-            echo 'Pipeline succeeded!'
-        }
-        failure {
-            // Actions to perform if the pipeline fails
         }
     }
 }
