@@ -1,6 +1,13 @@
 pipeline {
     agent any
      stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the repository and clone only the specific directory
+                git url: 'https://github.com/DevOpsTraineeJaySadhu/Jenkins_task.git', 
+                    branch: 'demo', 
+            }
+        }
         stage('Build Docker Image') {
             steps {
                 script {
@@ -11,7 +18,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh 'docker run -d --name demqo desmo'
+                    sh 'docker run -d --name demqo dedmo'
                 }
             }
         }
