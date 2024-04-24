@@ -1,7 +1,6 @@
 pipeline {
     agent any
     stages {
-       
         stage('Build Docker Image') {
             agent {
                 label  "ubuntu(slave-jay)"
@@ -17,6 +16,6 @@ pipeline {
                     sh 'docker run -d --name demqo desmo'
                 }
             }
+        }  
     }
-}
 }
