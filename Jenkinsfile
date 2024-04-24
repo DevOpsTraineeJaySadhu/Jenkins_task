@@ -8,7 +8,7 @@ pipeline {
             steps {
                 script {
                     sh 'docker build -t desmo .'
-                    sh 'docker run -d --name demqo desmo'
+                    sh 'docker run -d  desmo'
                 }
             }
         }
