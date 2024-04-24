@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             agent {
-                label "ubuntu(slave-jay)"
+                label "slave"
             }
             steps {
                 script {
