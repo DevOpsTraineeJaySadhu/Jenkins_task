@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     dir('/var/lib/jenkins/workspace') {
-                        Deletedir()
+                        sh 'rm -rf *'
                     }
                }
             }
