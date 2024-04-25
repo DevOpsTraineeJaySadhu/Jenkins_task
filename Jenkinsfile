@@ -30,14 +30,14 @@ pipeline {
         }
     }
     post {
-        always {    
-            steps('delete'){
-            script{
-            sh 'cd'
-            sh 'cd /var/lib/jenkins/workspace'
-            sh 'sudo rm -rf *'
-            }
-        }
-    }
-    }
+       always {
+           steps {
+               script {
+                   sh 'cd'
+                   sh 'cd /var/lib/jenkins/workspace'
+                   sh 'sudo rm -rf *'
+               }
+           }
+       }
+   }
 }
