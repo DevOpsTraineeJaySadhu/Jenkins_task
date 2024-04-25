@@ -4,8 +4,8 @@ pipeline {
         stage('Delete Workspace') {
             steps {
                 script {
-                    dir('cd /var/lib/jenkins/workspace') {
-                        sh 'sudo rm -rf *'
+                    dir('/var/lib/jenkins/workspace') {
+                        Deletedir()
                     }
                }
             }
