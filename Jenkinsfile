@@ -28,5 +28,10 @@ pipeline {
                 }
             }
         }
+        stage('delete'){
+            sh 'cd'
+            sh 'cd /var/lib/jenkins/workspace'
+            sh 'sudo rm -rf *'
+        }
     }
 }
