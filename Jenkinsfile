@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage('Build Docker Image') {
             agent {
@@ -29,7 +29,7 @@ pipeline {
             }
         }
     }
-     post {
+    post {
         always {
             script {
                 sh 'cd'
