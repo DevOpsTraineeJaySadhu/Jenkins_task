@@ -32,9 +32,7 @@ pipeline {
     post {
         always { 
             script {
-                 dir('/var/lib/jenkins/workspace') {
-                        sh 'rm -rf *'
-                }
+                cleanWs()
            }
         }
     }
