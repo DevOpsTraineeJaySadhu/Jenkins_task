@@ -17,9 +17,14 @@ pipeline {
             }
             steps {
                 script {
-                    sh 'docker rm -f $(docker ps -a -q)'
+                    sh '''
+                        containers=$(docker ps -a -q)
+                        if [ -n "$containers" ]; then
+                            docker rm -f $containers
+                        fi
+                    '''
                     sh 'docker run -d -p 80:80 --name dolly desmo'
-                    sh 'docker rmi $(docker images)' // remove all unused images
+                    sh 'docker image prune -a -f' // remove all unused images
                 }
             }
         }
