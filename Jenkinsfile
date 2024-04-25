@@ -18,8 +18,8 @@ pipeline {
             steps {
                 script {
                     sh 'docker rm -f $(docker ps -a -q)'
-                    sh 'docker image prune -a -f' // remove all unused images
                     sh 'docker run -d -p 80:80 --name dolly desmo'
+                    sh 'docker rmi $(docker images)' // remove all unused images
                 }
             }
         }
