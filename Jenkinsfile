@@ -11,6 +11,7 @@ pipeline {
                 }
             }
         }
+        
         stage('Deploy') {
             agent {
                 label "slave"
