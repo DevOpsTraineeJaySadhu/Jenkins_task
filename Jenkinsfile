@@ -22,4 +22,14 @@ pipeline {
             }
         }
     }
+<<<<<<< HEAD
+=======
+    post {
+         always { 
+             script {
+                 cleanWs()
+            }
+         }
+     }
+>>>>>>> a6125da8f606d7dad9c9c88907b724d06434661e
 }
