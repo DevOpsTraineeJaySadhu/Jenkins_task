@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     // Get the current branch name
-                    def branchName = env.BRANCH_NAME ?: 'unknown'
+                    def branchName = env.BRANCH_NAME ?: 'main'
                     
                     // Check the branch and execute commands accordingly
                     if (branchName == 'main') {
