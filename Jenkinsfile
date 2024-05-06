@@ -1,40 +1,25 @@
 pipeline {
     agent any
+    
     stages {
-        stage('Build Docker Image') {
-            agent {
-                label "slave"
-            }
+        stage('Check Branch') {
             steps {
                 script {
-                    sh 'docker build -t desmo .'
-                }
-            }
-        }
-        
-        stage('Deploy') {
-            agent {
-                label "slave"
-            }
-            steps {
-                script {
-                    sh '''
-                        containers=$(docker ps -a -q)
-                        if [ -n "$containers" ]; then
-                            docker rm -f $containers
-                        fi
-                    '''
-                    sh 'docker run -d -p 80:80 --name dolly desmo'
-                    sh 'docker image prune -a -f' // remove all unused images
+                    // Get the current branch name
+                    def branchName = env.BRANCH_NAME ?: 'main'
+                    
+                    // Check the branch and execute commands accordingly
+                    if (branchName == 'main') {
+                        echo 'hello i am from main branch'
+                    } else if (branchName == 'demo') {
+                        echo 'hello i am from demo branch'
+                       } else if (branchName == 'xyz') {
+                        echo 'hello i am from xyz branch'
+                    } else {
+                        echo 'hello i am from Nowhere'
+                    }
                 }
             }
         }
     }
-    // post {
-    //     always { 
-    //         script {
-    //             cleanWs()
-    //        }
-    //     }
-    // }
 }
