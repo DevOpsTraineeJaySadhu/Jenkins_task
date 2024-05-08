@@ -4,11 +4,16 @@ on:
     branches:
       - main
 jobs:
-  test:
+  clone:
+    name: Clone
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Testing 
-      run: echo "Hello world"
-
+    - name: Setup SSH
+      uses: testing/ssh-setup-action@v1
+      with:
+          host: github.com
+          private-key: ${{secrets.SSH_PRIVATE_KEY}}
+    - name: Clone repository
+      run: git clone git@github.com:DevOpsTraineeJaySadhu/Task.git
+    
       
