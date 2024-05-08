@@ -22,6 +22,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Node Configure
-      uses: actions/setup-node@v1.4.1 
+      uses: actions/setup-node@v4.0.2
     - name: Install dependencies
-      uses: jaid/action-npm-install@v1.2.1
+      uses: Jaid/action-npm-install@v1.2.4
