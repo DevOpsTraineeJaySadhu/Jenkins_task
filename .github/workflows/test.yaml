@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name: demo
 on: 
   push: 
@@ -11,3 +12,24 @@ jobs:
     - name:
       run: npm install
   
+=======
+name: Test
+on: 
+  push:
+    branches:
+      - main
+jobs:
+  clone:
+    name: Clone
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup SSH
+      uses: MrSquaare/ssh-setup-action@v1
+      with:
+          host: github.com
+          private-key: ${{secrets.SSH_PRIVATE_KEY}}
+    - name: Clone repository
+      run: git clone git@github.com:DevOpsTraineeJaySadhu/Task.git
+    
+      
+>>>>>>> aa32b1edb27e5b4d3ca27f134b07c0f90c6f9c87
