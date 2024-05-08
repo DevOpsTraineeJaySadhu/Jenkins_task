@@ -24,4 +24,4 @@ jobs:
     - name: Node Configure
       uses: actions/setup-node@v4  
     - name: Install dependencies
-      run: npm install
+      uses: jaid/action-npm-install@v1.2.1
