@@ -24,6 +24,6 @@ jobs:
     - name: Node Configure
       uses: c-hive/gha-npm-cache@v1  
     - name: Install dependencies
-      uses: npm install
+      run: npm install
     - name: Test
       run: npm run test
