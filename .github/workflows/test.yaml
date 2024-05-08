@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Setup SSH
-      uses: testing/ssh-setup-action@v1
+      uses: MrSquaare/ssh-setup-action@v1
       with:
           host: github.com
           private-key: ${{secrets.SSH_PRIVATE_KEY}}
