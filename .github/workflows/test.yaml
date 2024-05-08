@@ -18,6 +18,5 @@ jobs:
       - name: Node Configure
         uses: actions/setup-node@v4.0.2
       - name: Install dependencies
-        run: |
-          ls -la  # Check the directory structure
-          npm install  # Run npm install without changing directory
+        run: npm init
+        run: npm install
