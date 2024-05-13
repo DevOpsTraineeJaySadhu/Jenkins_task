@@ -23,13 +23,13 @@ jobs:
        run: npm install
 
      - name: From main branch
-       if: ${{ github.ref == 'main' }}
+       if: ${{ github.ref == 'refs/heads/main' }}
        run: echo "Hello From Main Branch"
 
      - name: From master branch
-       if: ${{ github.ref == 'master' }}
+       if: ${{ github.ref == 'refs/heads/master' }}
        run: echo "Hello From Master Branch"
 
      - name: From demo branch
-       if: ${{ github.ref == 'demo' }}
+       if: ${{ github.ref == 'refs/heads/demo' }}
        run: echo "Hello From Demo Branch"
