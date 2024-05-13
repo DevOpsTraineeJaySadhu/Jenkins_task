@@ -1,27 +1,37 @@
 name: demo
 
 on:
-  push:
-    branches: [main, master, demo]
+ push:
+   branches:
+     - main
+     - master
+     - demo
 
 jobs:
-  cloning:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Node Configure
-        uses: actions/setup-node@v4.0.2
-      - name: Initialize npm
-        run: npm init -y
-      - name: Installing dependencies
-        run: npm install
-      if: ${{push.branches == 'main'}}
-      - name: From main branch
-        echo "Hello From Main Branch"
-      if: ${{push.branches == 'master'}}
-      - name: From master branch
-        echo "Hello From Master Branch"
-      if: ${{push.branches == 'demo'}}
-      - name: From demo branch
-        echo "Hello From Demo Branch"
+ cloning:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout
+       uses: actions/checkout@v3
+
+     - name: Node Configure
+       uses: actions/setup-node@v4.0.2
+
+     - name: Initialize npm
+       run: npm init -y
+
+     - name: Installing dependencies
+       if: ${{ github.ref == 'refs/heads/main' }}
+       run: npm install
+
+     - name: From main branch
+       if: ${{ github.ref == 'refs/heads/main' }}
+       run: echo "Hello From Main Branch"
+
+     - name: From master branch
+       if: ${{ github.ref == 'refs/heads/master' }}
+       run: echo "Hello From Master Branch"
+
+     - name: From demo branch
+       if: ${{ github.ref == 'refs/heads/demo' }}
+       run: echo "Hello From Demo Branch"
