@@ -19,9 +19,7 @@ jobs:
 
      - name: Initialize npm
        run: npm init -y
-
-     - name: Installing dependencies
-       if: ${{ github.ref == 'refs/heads/main' }}
+     - name: Installing npm
        run: npm install
 
      - name: From main branch
