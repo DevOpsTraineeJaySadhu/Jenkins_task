@@ -2,8 +2,7 @@ name: demo
 
 on:
   push:
-    branches:
-      - master
+    branches: [main, master, demo]
 
 jobs:
   cloning:
@@ -17,3 +16,12 @@ jobs:
         run: npm init -y
       - name: Installing dependencies
         run: npm install
+      if: ${{push.branches == 'main'}}
+      - name: From main branch
+        echo "Hello From Main Branch"
+      if: ${{push.branches == 'master'}}
+      - name: From master branch
+        echo "Hello From Master Branch"
+      if: ${{push.branches == 'demo'}}
+      - name: From demo branch
+        echo "Hello From Demo Branch"
